@@ -1,0 +1,101 @@
+<div class="modal js-modal" id="callback-modal" data-lenis-prevent="">
+    <div class="modal__inner">
+        <button class="modal__close js-modal-close">
+            <svg width="14" height="14" aria-hidden="true">
+                <use xlink:href="#close"></use>
+            </svg>
+        </button>
+        <div class="modal__callback">
+            <h3 class="modal__heading">
+                Обсудить проект
+            </h3>
+            <div class="modal__text">
+                Оставьте заявку, наш менеджер свяжется с вами в ближайшее время
+            </div>
+            <form action="/" method="POST" class="modal__form">
+                <div class="modal__form-fields">
+                    <div class="modal__form-field">
+                        <label class="modal__form-label">
+                            <span class="modal__form-label-text">
+                                ФИО
+                            </span>
+                            <input type="text" name="your-name" class="modal__form-input" placeholder="Введите ФИО"
+                                required="">
+                        </label>
+                    </div>
+                    <div class="modal__form-field">
+                        <label class="modal__form-label">
+                            <span class="modal__form-label-text">
+                                Телефон
+                            </span>
+                            <input type="tel" name="your-phone" class="modal__form-input" placeholder="8 800 555-35-35"
+                                required="">
+                        </label>
+                    </div>
+                </div>
+                <div class="modal__form-bottom-row">
+                    <button class="modal__form-submit" type="submit">
+                        Отправить
+                    </button>
+                    <div class="modal__form-policy">
+                        <label class="modal__form-policy-checkbox">
+                            <input type="checkbox" name="policy" value="Y" class="modal__form-policy-checkbox-input"
+                                required="">
+                            <span class="modal__form-policy-checkbox-mark">
+
+                            </span>
+                            <span class="modal__form-policy-checkbox-text">
+                                Подтвердите согласие на обработку
+                                <a href="#">персональных данных</a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal js-modal" id="success-modal" data-lenis-prevent="">
+    <div class="modal__inner">
+        <button class="modal__close js-modal-close">
+            <svg width="14" height="14" aria-hidden="true">
+                <use xlink:href="#close"></use>
+            </svg>
+        </button>
+        <div class="modal__success">
+            <h3 class="modal__success-heading">
+                <b>Спасибо</b><br>
+                Заявка отправлена
+            </h3>
+            <div class="modal__success-text">
+                Наш менеджер свяжется с вами в ближайшее время
+            </div>
+            <button class="modal__success-btn">
+                Вернутся на главную
+            </button>
+        </div>
+    </div>
+</div>
+<div class="modal js-modal" id="error-modal" data-lenis-prevent="">
+    <div class="modal__inner">
+        <button class="modal__close js-modal-close">
+            <svg width="14" height="14" aria-hidden="true">
+                <use xlink:href="#close"></use>
+            </svg>
+        </button>
+        <div class="modal__success">
+            <h3 class="modal__success-heading">
+                <b>Ошибка</b><br>
+                Заявка не отправлена
+            </h3>
+            <div class="modal__success-text">
+                Попробуйте выполнить действие повторно
+            </div>
+            <a href="#" class="modal__success-btn">
+                Повторить
+            </a>
+        </div>
+    </div>
+</div>

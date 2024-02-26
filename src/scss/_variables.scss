@@ -1,0 +1,11 @@
+:root {
+  --aeroport: "Aeroport", sans-serif;
+  --content-padding: 4.8rem;
+  --container-width: 158rem;
+  --text-color: #090b10;
+  --clash: "Clash Display", sans-serif;
+
+  @include breakpoint(mobile) {
+    --content-padding: 2rem;
+  }
+}

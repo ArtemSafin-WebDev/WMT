@@ -1,0 +1,266 @@
+.developers {
+  @include blockWrapper;
+  position: relative;
+  z-index: 1;
+  background-color: var(--text-color);
+  color: white;
+}
+.developers__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.developers__bg-parallax-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.developers__bg-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.developers__content {
+  @include blockContent;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1.6rem;
+  padding-top: 8.6rem;
+  padding-bottom: 9.5rem;
+  min-height: 82.2rem;
+
+  @include breakpoint(mobile) {
+    min-height: 66.8rem;
+    padding-bottom: 5.2rem;
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
+.developers__col {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.developers__heading {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 110%;
+  margin-bottom: 3rem;
+
+  @include breakpoint(mobile) {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 115%;
+    margin-bottom: 3rem;
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.developers__friend {
+  margin-top: auto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 4rem;
+  line-height: 125%;
+  text-transform: uppercase;
+
+  @include breakpoint(mobile) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 110%;
+    order: 20;
+    padding-right: 5rem;
+    margin-top: auto;
+    position: relative;
+  }
+
+  span {
+    font-style: normal;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.25s ease-out;
+  }
+
+  em {
+    font-style: normal;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.25s ease-out;
+    background-size: 100% 1px;
+  }
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.2s;
+    margin-bottom: 0.3rem;
+    margin-left: 1rem;
+
+    @include breakpoint(mobile) {
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      margin: 0;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      & > span {
+        background-size: 100% 1px;
+      }
+
+      svg {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.developers__secondary-heading {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 4.4rem;
+  line-height: 125%;
+  text-transform: uppercase;
+  margin-bottom: 8rem;
+
+  @include breakpoint(mobile) {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.2rem;
+    line-height: 115%;
+  }
+}
+
+.developers__list {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3rem;
+  }
+}
+
+.developers__list-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  &:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.developers__card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem 0;
+
+  @include breakpoint(mobile) {
+    padding: 1.6rem 0;
+  }
+}
+
+.developers__card-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 125%;
+  text-transform: uppercase;
+
+  @include breakpoint(mobile) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 125%;
+  }
+}
+
+.developers__card-btn {
+  @include breakpointMF(small-tablet) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 1.6rem 2.8rem;
+    border-radius: 100rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 100%;
+    flex-shrink: 0;
+    margin-left: auto;
+    transition: color 0.2s, background-color 0.2s;
+    background-clip: padding-box;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.developers__card-btn-icon {
+  display: none;
+
+  @include breakpoint(mobile) {
+    display: grid;
+    place-items: center;
+    margin-left: auto;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+.developers__card-btn-text {
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}

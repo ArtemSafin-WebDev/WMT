@@ -1,0 +1,319 @@
+.start-project {
+  @include blockWrapper;
+  background-color: #f7f6f7;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  @include breakpoint(mobile) {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.start-project__content {
+  @include blockContent;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1.6rem;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+}
+
+.start-project__col {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(mobile) {
+    &:nth-child(1) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-direction: row;
+    }
+  }
+}
+
+.start-project__text {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 110%;
+  margin-bottom: 3rem;
+  max-width: 42rem;
+
+  @include breakpoint(mobile) {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 115%;
+    max-width: 18rem;
+    margin: 0;
+  }
+}
+
+.start-project__circles {
+  width: 26.7rem;
+  height: auto;
+  margin-top: auto;
+  @include breakpoint(mobile) {
+    width: 10.5rem;
+    margin: 0;
+    margin-left: auto;
+    margin-top: 0;
+  }
+}
+
+.start-project__heading {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 4.4rem;
+  line-height: 110%;
+  margin-bottom: 5.2rem;
+  text-transform: uppercase;
+
+  b {
+    font-weight: inherit;
+    background-image: linear-gradient(to right, #6a1ab9, #eb885a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @include breakpoint(mobile) {
+    margin-bottom: 4rem;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.2rem;
+    line-height: 115%;
+  }
+}
+
+.start-project__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-project__form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 51.6rem;
+  margin-bottom: 3rem;
+  @include breakpoint(mobile) {
+    max-width: none;
+    margin-bottom: 3rem;
+  }
+}
+
+.start-project__form-input {
+  height: 6.4rem;
+  padding: 0 2.4rem;
+  border-radius: 3.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 110%;
+  transition: color 0.2s, border-color 0.2s;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  @include breakpoint(mobile) {
+    height: 5.6rem;
+    padding: 0 2rem;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 100%;
+  }
+}
+
+.start-project__form-policy {
+  margin-bottom: 3rem;
+
+  @include breakpoint(mobile) {
+    margin: 0;
+    order: 15;
+  }
+}
+
+.start-project__form-policy-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  user-select: none;
+  cursor: pointer;
+
+  @include breakpoint(mobile) {
+    gap: 1.2rem;
+  }
+}
+
+.start-project__form-policy-checkbox-input {
+  display: none;
+}
+
+.start-project__form-policy-checkbox-mark {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, color 0.2s;
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint(mobile) {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background-image: linear-gradient(to right, #6a1ab9, #eb885a);
+    opacity: 0;
+    z-index: -1;
+    border-radius: 0.3rem;
+
+    transition: opacity 0.2s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    border-radius: 0.3rem;
+    pointer-events: none;
+  }
+}
+
+.start-project__form-policy-checkbox-text {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 110%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.4rem;
+  }
+
+  a {
+    display: inline-block;
+    position: relative;
+    font-weight: inherit;
+    background-image: linear-gradient(to right, #6a1ab9, #eb885a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 100%;
+      height: 1px;
+      width: 100%;
+      left: 0;
+      background-image: linear-gradient(to right, #6a1ab9, #eb885a);
+    }
+  }
+}
+
+.start-project__form-policy-checkbox-input:checked
+  ~ .start-project__form-policy-checkbox-mark {
+  &::after {
+    opacity: 1;
+  }
+  &::before {
+    opacity: 1;
+  }
+}
+
+.start-project__form-submit {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  transition: border-color 0.2s, color 0.2s;
+  color: white;
+  padding: 2.6rem 4rem;
+  border-radius: 10rem;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 100%;
+  overflow: hidden;
+  justify-content: center;
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.8rem;
+    padding: 1.9rem 3rem;
+    margin-bottom: 3rem;
+    align-self: stretch;
+  }
+
+  & > span {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10rem;
+    transition: border-color 0.2s;
+  }
+
+  &:link,
+  &:visited {
+    color: white;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -2;
+    background-image: linear-gradient(to right, #6a1ab9, #eb885a);
+    transition: opacity 0.2s;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 10rem;
+    border: 1px solid transparent;
+    background: linear-gradient(to right, #6a1ab9, #eb885a) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--text-color);
+      & > span {
+        border-color: transparent;
+      }
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+}

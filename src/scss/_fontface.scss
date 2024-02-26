@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Aeroport";
+  src: url("../fonts/Aeroport.woff2") format("woff2"),
+    url("../fonts/Aeroport.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeroport";
+  src: url("../fonts/Aeroport-Light.woff2") format("woff2"),
+    url("../fonts/Aeroport-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeroport";
+  src: url("../fonts/Aeroport-Medium.woff2") format("woff2"),
+    url("../fonts/Aeroport-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("../fonts/ClashDisplay-Light.woff2") format("woff2"),
+    url("../fonts/ClashDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("../fonts/ClashDisplay-Extralight.woff2") format("woff2"),
+    url("../fonts/ClashDisplay-Extralight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
