@@ -164,6 +164,10 @@
     font-weight: 300;
     font-size: 3.2rem;
     line-height: 115%;
+
+    br {
+      display: none;
+    }
   }
 }
 

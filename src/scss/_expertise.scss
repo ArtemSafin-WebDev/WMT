@@ -477,7 +477,7 @@
   font-family: var(--clash);
 
   @include breakpoint(mobile) {
-    ont-style: normal;
+    font-style: normal;
     font-weight: 200;
     font-size: 4rem;
     line-height: 100%;

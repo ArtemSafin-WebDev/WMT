@@ -16,6 +16,8 @@ import modals from "./modals";
 import menu from "./menu";
 import smoothScrolling from "./smoothScrolling";
 import approachAnimation from "./approachAnimation";
+import introParallax from "./introParallax";
+import expertiseAnimation from "./expertiseAnimation";
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
@@ -34,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   modals();
   menu();
   approachAnimation();
+  introParallax();
+  expertiseAnimation();
 });
 
 window.addEventListener("load", () => {
