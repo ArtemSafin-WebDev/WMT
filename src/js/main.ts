@@ -18,6 +18,9 @@ import smoothScrolling from "./smoothScrolling";
 import approachAnimation from "./approachAnimation";
 import introParallax from "./introParallax";
 import expertiseAnimation from "./expertiseAnimation";
+import parallaxBlocks from "./parallaxBlocks";
+import clientsAnimation from "./clientsAnimation";
+import servicesAnimation from "./servicesAnimation";
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
@@ -38,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
   approachAnimation();
   introParallax();
   expertiseAnimation();
+  parallaxBlocks();
+  clientsAnimation();
+  servicesAnimation();
 });
 
 window.addEventListener("load", () => {

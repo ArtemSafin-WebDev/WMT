@@ -23,24 +23,24 @@ export default function fixedHeader() {
 
   window.addEventListener("resize", debounce(checkHeader, 300));
 
-  //   ScrollTrigger.create({
-  //     onUpdate: (self) => {
-  //       const direction = self.direction;
+  ScrollTrigger.create({
+    onUpdate: (self) => {
+      const direction = self.direction;
 
-  //       const intro = document.querySelector<HTMLElement>(".intro");
+      const intro = document.querySelector<HTMLElement>(".intro");
 
-  //       if (intro) {
-  //         if (window.scrollY < intro.offsetHeight) {
-  //           document.body.classList.remove("header-hidden");
-  //           return;
-  //         }
-  //       }
+      if (intro) {
+        if (window.scrollY < intro.offsetHeight) {
+          document.body.classList.remove("header-hidden");
+          return;
+        }
+      }
 
-  //       if (direction === 1) {
-  //         document.body.classList.add("header-hidden");
-  //       } else {
-  //         document.body.classList.remove("header-hidden");
-  //       }
-  //     },
-  //   });
+      if (direction === 1) {
+        document.body.classList.add("header-hidden");
+      } else {
+        document.body.classList.remove("header-hidden");
+      }
+    },
+  });
 }

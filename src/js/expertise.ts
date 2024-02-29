@@ -65,6 +65,7 @@ export default function expertise() {
         },
         autoHeight: true,
         init: false,
+        speed: 600,
         pagination: {
           type: "progressbar",
           el: element.querySelector<HTMLElement>(".expertise__progressbar"),
@@ -84,7 +85,133 @@ export default function expertise() {
           slideChange: (swiper) => {
             setActive(swiper.activeIndex);
           },
+          slideChangeTransitionStart(swiper) {
+            if (window.matchMedia("(max-width: 640px)").matches) return;
+
+            bullets.forEach((bullet) => bullet.classList.add("disabled"));
+
+            const tl = gsap.timeline({
+              onComplete: () => {
+                bullets.forEach((bullet) =>
+                  bullet.classList.remove("disabled")
+                );
+                setTimeout(() => {
+                  ScrollTrigger.refresh();
+                }, 50);
+              },
+            });
+            const prevSlide = swiper.slides[swiper.previousIndex];
+            const nextSlide = swiper.slides[swiper.activeIndex];
+            tl.fromTo(
+              prevSlide.querySelector(".expertise__slider-card-title"),
+              {
+                y: 0,
+                autoAlpha: 1,
+              },
+              {
+                y: -50,
+                autoAlpha: 0,
+                duration: 0.6,
+                clearProps: "all",
+              }
+            ).fromTo(
+              nextSlide.querySelector(".expertise__slider-card-title"),
+              {
+                y: 50,
+                autoAlpha: 0,
+              },
+              {
+                duration: 0.6,
+                clearProps: "all",
+                y: 0,
+                autoAlpha: 1,
+              }
+            );
+
+            tl.fromTo(
+              prevSlide.querySelector(".expertise__slider-card-features"),
+              {
+                autoAlpha: 1,
+              },
+              {
+                autoAlpha: 0,
+                duration: 0.6,
+                clearProps: "all",
+              },
+              0
+            ).fromTo(
+              nextSlide.querySelector(".expertise__slider-card-features"),
+              {
+                autoAlpha: 0,
+              },
+              {
+                duration: 0.6,
+                clearProps: "all",
+                autoAlpha: 1,
+              },
+              1
+            );
+
+            tl.fromTo(
+              Array.from(
+                prevSlide.querySelectorAll(
+                  ".expertise__slider-card-numbers-list-item"
+                )
+              ),
+              {
+                autoAlpha: 1,
+                y: 0,
+              },
+              {
+                autoAlpha: 0,
+                duration: 0.4,
+                stagger: 0.1,
+                y: -40,
+                // clearProps: "all",
+              },
+              0
+            ).fromTo(
+              Array.from(
+                nextSlide.querySelectorAll(
+                  ".expertise__slider-card-numbers-list-item"
+                )
+              ),
+              {
+                autoAlpha: 0,
+                y: 40,
+              },
+              {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.4,
+                stagger: 0.1,
+                clearProps: "all",
+                ease: "power3.out",
+              },
+              0.8
+            );
+
+            tl.to(
+              prevSlide.querySelector(".expertise__card-btn"),
+              {
+                autoAlpha: 0,
+                duration: 0.4,
+              },
+              0
+            ).fromTo(
+              nextSlide.querySelector(".expertise__card-btn"),
+              {
+                autoAlpha: 0,
+              },
+              {
+                autoAlpha: 1,
+                duration: 0.4,
+              },
+              0.8
+            );
+          },
           slideChangeTransitionEnd: () => {
+            if (!window.matchMedia("(max-width: 640px)").matches) return;
             ScrollTrigger.refresh();
           },
         },

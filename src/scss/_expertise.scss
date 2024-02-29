@@ -81,6 +81,11 @@
     text-transform: uppercase;
     gap: 2.4rem;
 
+    &.disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
     &.active {
       .expertise__slider-nav-link-text {
         color: transparent;

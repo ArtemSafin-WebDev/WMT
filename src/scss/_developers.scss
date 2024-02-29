@@ -12,6 +12,8 @@
   width: 100%;
   height: 100%;
   z-index: -1;
+  overflow: hidden;
+  backface-visibility: hidden;
 }
 
 .developers__bg-parallax-wrapper {
@@ -20,6 +22,12 @@
   top: 0;
   width: 100%;
   height: 100%;
+
+  @include breakpointMF(small-tablet) {
+    bottom: 0;
+    height: 120%;
+    top: auto;
+  }
 }
 
 .developers__bg-image {

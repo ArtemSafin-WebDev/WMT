@@ -56,5 +56,34 @@ export default function approachAnimation() {
         ease: "none",
       });
     });
+
+    mm.add("(min-width: 641px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: element,
+          start: "top+=300 bottom",
+          end: "bottom top",
+          markers: false,
+        },
+      });
+
+      tl.from(element.querySelector(".approach__text"), {
+        autoAlpha: 0,
+        y: 40,
+        ease: "power4.out",
+        duration: 2,
+      });
+
+      tl.from(
+        Array.from(element.querySelectorAll(".approach__slider-card")),
+        {
+          duration: 1,
+          autoAlpha: 0,
+          y: 100,
+          stagger: 0.2,
+        },
+        0
+      );
+    });
   });
 }

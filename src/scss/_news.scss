@@ -111,6 +111,32 @@
   padding: 3.2rem;
   padding-bottom: 2.3rem;
   border: 1px solid #e6e6e6;
+  transition: border-color 0.2s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: 0;
+    border: 1px solid transparent;
+    background: linear-gradient(to right, #6a1ab9, #eb885a) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: transparent;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
 
   @include breakpoint(mobile) {
     padding: 1.2rem;
