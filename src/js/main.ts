@@ -21,6 +21,7 @@ import expertiseAnimation from "./expertiseAnimation";
 import parallaxBlocks from "./parallaxBlocks";
 import clientsAnimation from "./clientsAnimation";
 import servicesAnimation from "./servicesAnimation";
+import reviewsAnimation from "./reviewsAnimation";
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   parallaxBlocks();
   clientsAnimation();
   servicesAnimation();
+  reviewsAnimation();
 });
 
 window.addEventListener("load", () => {
