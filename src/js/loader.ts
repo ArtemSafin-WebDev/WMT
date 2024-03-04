@@ -5,7 +5,13 @@ export default function loader() {
   if (!loader) return;
 
   setTimeout(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      onComplete: () => {
+        gsap.set(".loader", {
+          display: "none",
+        });
+      },
+    });
 
     tl.fromTo(
       ".loader__gradient-layer",
