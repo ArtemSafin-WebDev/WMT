@@ -1,5 +1,60 @@
 <div class="loader">
-    <div class="loader__inner">
+    <div class="loader__gradient-layer">
 
     </div>
+    <div class="loader__white-layer">
+
+    </div>
+    <div class="loader__inner">
+        <img src="data:image/png;base64,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"
+            alt="" class="loader__logo" width="235" height="113">
+    </div>
 </div>
+
+<style>
+    .loader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        z-index: 1000;
+    }
+
+
+
+    .loader__gradient-layer {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(104.97deg, #6A1AB9 -9.2%, #EB885A 95.41%);
+
+    }
+
+    .loader__white-layer {
+        position: absolute;
+        inset: 0;
+        background-color: #fff;
+        z-index: -1;
+    }
+
+    .loader__inner {
+        width: 130px;
+
+    }
+
+    .loader__logo {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 20;
+    }
+
+    @media (max-width: 640px) {
+        .loader__inner {
+            width: 80px;
+        }
+    }
+</style>
