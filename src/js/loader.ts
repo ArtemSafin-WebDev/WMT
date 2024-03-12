@@ -57,7 +57,7 @@ export default function loader() {
         ease: "linear",
         clearProps: "all",
       },
-      "<+=0.3"
+      "<-=0.2"
     )
       .fromTo(
         ".intro__heading-slider",

@@ -19,6 +19,7 @@ export default function intro() {
     let headingInstance: Swiper | null = null;
     let numbersInstance: Swiper | null = null;
     let controlsInstance: Swiper | null = null;
+    let autoplayEnabled = true;
 
     function initializeSlider(element: HTMLElement, mobile = false) {
       const bgContainer =
@@ -41,10 +42,21 @@ export default function intro() {
         ".intro__controls-slider .swiper"
       );
 
+      const arrows = Array.from(
+        element.querySelectorAll<HTMLElement>(".intro__arrow")
+      );
+
       // let bgInstance: Swiper | null = null;
       // let mainInstance: Swiper | null = null;
       // let headingInstance: Swiper | null = null;
       // let numbersInstance: Swiper | null = null;
+
+      arrows.forEach((arrow) => {
+        arrow.addEventListener("click", () => {
+          if (arrow.classList.contains("swiper-button-disabled")) return;
+          cancelAutoplay();
+        });
+      });
 
       if (controlsContainer) {
         controlsInstance = new Swiper(controlsContainer, {
@@ -135,9 +147,37 @@ export default function intro() {
           },
           on: {
             init: (swiper) => {
+              links.forEach((link) => link.classList.remove("active"));
+              const currentLink = links[swiper.activeIndex];
+              currentLink?.classList.add("active");
+              if (!autoplayEnabled) {
+                links.forEach((link) => {
+                  gsap.killTweensOf(link);
+                  gsap.set(link, {
+                    "--progress": 0,
+                  });
+                });
+                gsap.set(currentLink, {
+                  "--progress": 1,
+                });
+              }
               autoplay(swiper.activeIndex);
             },
             slideChange: (swiper) => {
+              links.forEach((link) => link.classList.remove("active"));
+              const currentLink = links[swiper.activeIndex];
+              currentLink?.classList.add("active");
+              if (!autoplayEnabled) {
+                links.forEach((link) => {
+                  gsap.killTweensOf(link);
+                  gsap.set(link, {
+                    "--progress": 0,
+                  });
+                });
+                gsap.set(currentLink, {
+                  "--progress": 1,
+                });
+              }
               autoplay(swiper.activeIndex);
             },
           },
@@ -171,19 +211,32 @@ export default function intro() {
       links.forEach((link, linkIndex) => {
         link.addEventListener("click", (event) => {
           event.preventDefault();
+          cancelAutoplay();
           mainInstance?.slideTo(linkIndex);
         });
       });
 
+      function cancelAutoplay() {
+        autoplayEnabled = false;
+        // links.forEach((link) => {
+        //   gsap.killTweensOf(link);
+
+        //   gsap.set(link, {
+        //     "--progress": 0,
+        //   });
+        // });
+        // const currentLink = links[index];
+        // gsap.set(currentLink, {
+        //   "--progress": 1,
+        // });
+      }
+
       function autoplay(index: number) {
-        if (mobile) return;
+        if (mobile || !autoplayEnabled) return;
         links.forEach((link) => {
           gsap.killTweensOf(link);
 
-          link.classList.remove("active");
-
           const currentLink = links[index];
-          currentLink?.classList.add("active");
 
           gsap.set(link, {
             "--progress": 0,
@@ -196,7 +249,7 @@ export default function intro() {
             },
             {
               "--progress": 1,
-              duration: 5,
+              duration: 10,
               ease: "none",
               onComplete: () => {
                 if (index < links.length - 1) {

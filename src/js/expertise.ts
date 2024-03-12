@@ -220,6 +220,7 @@ export default function expertise() {
       mainInstance.init();
 
       if (navInstance) {
+        mainInstance.controller.control = navInstance;
       }
 
       bullets.forEach((bullet, bulletIndex) => {
